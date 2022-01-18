@@ -58,8 +58,8 @@ function Create_Card_Movie(movie){
 
 
 
-//getMovies(`${BASE_URL}/discover/movie?sort_by=popularity.desc&${API_KEY}&language=fr-FR`);
-getMovies(`https://api.themoviedb.org/3/search/movie?api_key=9589339f8da90a06aed6e3d2b11f4901&language=fr-FR&query=Harry Potter`);
+getMovies(`${BASE_URL}/discover/movie?sort_by=popularity.desc&${API_KEY}&language=fr-FR`);
+//getMovies(`https://api.themoviedb.org/3/search/movie?api_key=9589339f8da90a06aed6e3d2b11f4901&language=fr-FR&query=Harry Potter`);
 
 
 
