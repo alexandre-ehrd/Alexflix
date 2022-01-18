@@ -37,7 +37,7 @@ function Create_Card_Movie(movie){
       let test = document.createElement('img');
       test.src = `https://image.tmdb.org/t/p/w300/${movie.backdrop_path}`
       card.appendChild(test);
-
+      console.log("Test Github")
 
    // Coup d'oeil
       // Mettre la backdrop_image du film
