@@ -1,0 +1,376 @@
+
+var URL_Test = 'https://api.themoviedb.org/3/search/movie?api_key=9589339f8da90a06aed6e3d2b11f4901&language=fr-FR&page=1&query=Harry Potter';
+/*
+{
+   "page": 1,
+   "results": [
+   {
+   "adult": false,
+   "backdrop_path": "/t3LicFpYHeYpwqm7L5wDpd22hL5.jpg",
+   "genre_ids": [
+   12,
+   14
+   ],
+   "id": 671,
+   "original_language": "en",
+   "original_title": "Harry Potter and the Philosopher's Stone",
+   "overview": "Orphelin, Harry Potter a été élevé sans amour par son oncle et sa tante Dursley, béats devant leur exécrable fils, Dudley. Le jour de ses 11 ans, un brave colosse nommé Hagrid lui apprend qu'il est un grand magicien. Comme l'étaient ses parents, tués par le maléfique Voldemort. L'heure est venue pour Harry de rejoindre la célèbre école de sorcellerie de Poudlard",
+   "popularity": 377.574,
+   "poster_path": "/fbxQ44VRdM2PVzHSNajUseUteem.jpg",
+   "release_date": "2001-11-16",
+   "title": "Harry Potter à l'école des sorciers",
+   "video": false,
+   "vote_average": 7.9,
+   "vote_count": 21882
+   },
+   {
+   "adult": false,
+   "backdrop_path": "/8rft8A9nH43IReybFtYt21ezfMK.jpg",
+   "genre_ids": [
+   99
+   ],
+   "id": 899082,
+   "original_language": "en",
+   "original_title": "Harry Potter 20th Anniversary: Return to Hogwarts",
+   "overview": "L'histoire enchanteresse du making-of, racontée à travers de toutes nouvelles interviews et conversations avec les acteurs, invitant les fans à un voyage magique à travers l'une des franchises de films les plus appréciées de tous les temps.",
+   "popularity": 1076.404,
+   "poster_path": "/q3H5P8c0ZetMcV1ajM0Qbtv0BlV.jpg",
+   "release_date": "2022-01-01",
+   "title": "Harry Potter fête ses 20 ans : retour à Poudlard",
+   "video": false,
+   "vote_average": 8.5,
+   "vote_count": 731
+   },
+   {
+   "adult": false,
+   "backdrop_path": "/1stUIsjawROZxjiCMtqqXqgfZWC.jpg",
+   "genre_ids": [
+   12,
+   14
+   ],
+   "id": 672,
+   "original_language": "en",
+   "original_title": "Harry Potter and the Chamber of Secrets",
+   "overview": "Après de très mauvaises vacances passées chez ses odieux oncle et tante et son affreux cousin, Harry rejoint, non sans mal, l'École des Sorciers où, avec ses amis Ron et Hermione et l'aide ponctuelle de nouveaux venus, il parvient à élucider le mystère de la Chambre des secrets, malgré les pièges tendus par ses ennemis et sans le concours de Lockhart, un nouveau professeur fanfaron et lâche, chargé pourtant de vaincre les Forces du Mal.",
+   "popularity": 307.473,
+   "poster_path": "/8KpHRokGpiaqEGpjYe0rpywtvUx.jpg",
+   "release_date": "2002-11-13",
+   "title": "Harry Potter et la Chambre des secrets",
+   "video": false,
+   "vote_average": 7.7,
+   "vote_count": 17631
+   },
+   {
+   "adult": false,
+   "backdrop_path": "/5rrGVmRUuCKVbqUu41XIWTXJmNA.jpg",
+   "genre_ids": [
+   12,
+   14,
+   10751
+   ],
+   "id": 674,
+   "original_language": "en",
+   "original_title": "Harry Potter and the Goblet of Fire",
+   "overview": "La quatrième année à l’école de Poudlard est marquée par le « Tournoi des trois sorciers ». Les participants sont choisis par la fameuse « Coupe de feu » qui est à l’origine d’un scandale. Elle sélectionne Harry Potter alors qu’il n’a pas l’âge légal requis ! Accusé de tricherie et mis à mal par une série d’épreuves physiques de plus en plus difficiles, ce dernier sera enfin confronté à Celui dont on ne doit pas prononcer le nom, Lord V.",
+   "popularity": 286.361,
+   "poster_path": "/hBak1pn5pbI4ycAbrgMMn1YI7P1.jpg",
+   "release_date": "2005-11-16",
+   "title": "Harry Potter et la Coupe de feu",
+   "video": false,
+   "vote_average": 7.8,
+   "vote_count": 16668
+   },
+   {
+   "adult": false,
+   "backdrop_path": "/ze6Mx4QE5mQVXRYmG2flncqqle4.jpg",
+   "genre_ids": [
+   12,
+   14
+   ],
+   "id": 767,
+   "original_language": "en",
+   "original_title": "Harry Potter and the Half-Blood Prince",
+   "overview": "Voldemort a renforcé son emprise sur le monde des sorciers aussi bien que sur celui des Moldus, et Poudlard n’est plus un endroit sûr. Harry est d’ailleurs persuadé que le danger rôde à l’intérieur même de l’école mais Dumbledore est plus soucieux de le préparer pour la bataille finale qu’il sent approcher à grands pas. Ensemble, ils tentent de trouver le talon d’Achille de Voldemort et, à cette fin, Dumbledore fait appel au Professeur Horace Slughorn, qui détient des informations cruciales.",
+   "popularity": 243.529,
+   "poster_path": "/A4WWOzWUASfUeESXxduQxVmoD7t.jpg",
+   "release_date": "2009-07-07",
+   "title": "Harry Potter et le Prince de sang-mêlé",
+   "video": false,
+   "vote_average": 7.7,
+   "vote_count": 15613
+   },
+   {
+   "adult": false,
+   "backdrop_path": "/vbk5CfaAHOjQPSAcYm6AoRRz2Af.jpg",
+   "genre_ids": [
+   12,
+   14
+   ],
+   "id": 673,
+   "original_language": "en",
+   "original_title": "Harry Potter and the Prisoner of Azkaban",
+   "overview": "Sirius Black, un dangereux sorcier criminel, s’échappe de la sombre prison d’Azkaban avec un seul et unique but : retrouver Harry Potter, en troisième année à l’école de Poudlard. Selon la légende, Black aurait jadis livré les parents du jeune sorcier à leur assassin, Lord Voldemort, et serait maintenant déterminé à tuer Harry…",
+   "popularity": 294.154,
+   "poster_path": "/t4P2079IyK19njHDP2GwQrKdvzd.jpg",
+   "release_date": "2004-05-31",
+   "title": "Harry Potter et le Prisonnier d'Azkaban",
+   "video": false,
+   "vote_average": 8,
+   "vote_count": 17340
+   },
+   {
+   "adult": false,
+   "backdrop_path": "/sO2VWeJ8qagNtYoznyLRL8TeSkw.jpg",
+   "genre_ids": [
+   12,
+   14,
+   9648
+   ],
+   "id": 675,
+   "original_language": "en",
+   "original_title": "Harry Potter and the Order of the Phoenix",
+   "overview": "Alors qu’il entame sa cinquième année d’étude à Poudlard, Harry Potter découvre qu’une bonne partie de la communauté des sorciers feint d’ignorer sa récente confrontation avec Lord Voldemort, et préfèrent nier cette aveuglante évidence : le Seigneur des Ténèbres est bel et bien vivant. De plus, la communauté magique lit les mensonges de Rita Skeeter dans la Gazette du Sorcier sous contrôle du Ministère de la Magie. Craignant que le puissant Albus Dumbledore ne mente à propos du retour de Voldemort dans le but de saper son autorité et de lui ravir son poste, le Ministre de la Magie Cornélius Fudge nomme un nouveau Professeur de Défense contre les Forces du Mal, qu’il charge de surveiller le vieux doyen et ses étudiants. Mais celle‐ci, Dolores Ombrage, se révèle incapable de préparer les collégiens à affronter les nouvelles menaces qui planent sur Poudlard…",
+   "popularity": 247.543,
+   "poster_path": "/9ZfpCVNx0y8jpColnnfdA1HI4Zb.jpg",
+   "release_date": "2007-06-28",
+   "title": "Harry Potter et l'Ordre du Phénix",
+   "video": false,
+   "vote_average": 7.7,
+   "vote_count": 15849
+   },
+   {
+   "adult": false,
+   "backdrop_path": "/n5A7brJCjejceZmHyujwUTVgQNC.jpg",
+   "genre_ids": [
+   14,
+   12
+   ],
+   "id": 12445,
+   "original_language": "en",
+   "original_title": "Harry Potter and the Deathly Hallows: Part 2",
+   "overview": "Le combat entre les puissances du bien et du mal de l’univers des sorciers se transforme en guerre sans merci. L’école Poudlard est désormais sous la coupe du professeur Rogue et des force des ténèbres. Les enjeux sont devenus considérables et personne n’est plus en sécurité alors que se rapproche l’ultime épreuve de force avec Voldemort…",
+   "popularity": 258.846,
+   "poster_path": "/alQOPmKEPHkH4BLMEla1vTNYrUr.jpg",
+   "release_date": "2011-07-07",
+   "title": "Harry Potter et les Reliques de la mort : 2ème partie",
+   "video": false,
+   "vote_average": 8.1,
+   "vote_count": 16730
+   },
+   {
+   "adult": false,
+   "backdrop_path": "/AqLcLsGGTzAjm3pCCq0CZCQrp6m.jpg",
+   "genre_ids": [
+   12,
+   14
+   ],
+   "id": 12444,
+   "original_language": "en",
+   "original_title": "Harry Potter and the Deathly Hallows: Part 1",
+   "overview": "Le pouvoir de Voldemort s’étend. Celui‐ci contrôle maintenant le Ministère de la Magie et Poudlard. Harry, Ron et Hermione décident de terminer le travail commencé par Dumbledore, et de retrouver les derniers Horcruxes pour vaincre le Seigneur des Ténèbres. Mais il reste bien peu d’espoir aux trois sorciers, qui doivent réussir à tout prix.",
+   "popularity": 236.262,
+   "poster_path": "/yJm61MmTMjOmNXxPxdoaIkdqnOm.jpg",
+   "release_date": "2010-10-17",
+   "title": "Harry Potter et les Reliques de la mort : 1ère partie",
+   "video": false,
+   "vote_average": 7.8,
+   "vote_count": 15526
+   },
+   {
+   "adult": false,
+   "backdrop_path": "/4LOxoeZWt5wr9mooxEZRFK96lDd.jpg",
+   "genre_ids": [
+   99
+   ],
+   "id": 483898,
+   "original_language": "en",
+   "original_title": "50 Greatest Harry Potter Moments",
+   "overview": "",
+   "popularity": 127.399,
+   "poster_path": "/g1xiBoLD6v3ZaXPa4QtuXiQeYKW.jpg",
+   "release_date": "2011-07-27",
+   "title": "50 Greatest Harry Potter Moments",
+   "video": false,
+   "vote_average": 8,
+   "vote_count": 44
+   },
+   {
+   "adult": false,
+   "backdrop_path": null,
+   "genre_ids": [
+   14
+   ],
+   "id": 881554,
+   "original_language": "en",
+   "original_title": "Harry Potter: Different Perspective",
+   "overview": "",
+   "popularity": 56.114,
+   "poster_path": "/APuWMuQGqHZMG236ZTsMhNpUXF.jpg",
+   "release_date": "2021-08-10",
+   "title": "Harry Potter: Different Perspective",
+   "video": false,
+   "vote_average": 1.5,
+   "vote_count": 2
+   },
+   {
+   "adult": false,
+   "backdrop_path": "/mjCYpJXCBYDZgMr1U1KZcFgFDfC.jpg",
+   "genre_ids": [
+   99
+   ],
+   "id": 482408,
+   "original_language": "en",
+   "original_title": "Harry Potter: A History Of Magic",
+   "overview": "Un voyage passionnant à travers les légendes, les croyances et le folklore, ce film entre dans les coulisses de la British Library alors qu'elle cherche à raconter cette histoire à travers les objets de sa collection, dans une nouvelle exposition ambitieuse: Harry Potter: A History Of Magic. J.K. Rowling, qui prête des manuscrits, des dessins et des brouillons invisibles de ses archives privées (qui côtoient des trésors de la British Library, ainsi que des ébauches et des dessins originaux de Jim Kay) parle de certains des objets personnels qu'elle a prêtés à l'exposition et donne un nouvel aperçu de son écriture, en regardant certains des objets de l'exposition qui ont enflammé son imagination.",
+   "popularity": 40.554,
+   "poster_path": "/geike7VgTrftxwzcvND4dRdZdAv.jpg",
+   "release_date": "2017-10-28",
+   "title": "Harry Potter, une histoire de la magie",
+   "video": false,
+   "vote_average": 6.9,
+   "vote_count": 33
+   },
+   {
+   "adult": false,
+   "backdrop_path": null,
+   "genre_ids": [],
+   "id": 918078,
+   "original_language": "en",
+   "original_title": "Daniel Radcliffe: Being Harry Potter",
+   "overview": "",
+   "popularity": 32.095,
+   "poster_path": "/4keobTsQVrMS2JwE3TRod0SrYTD.jpg",
+   "release_date": "",
+   "title": "Daniel Radcliffe: Being Harry Potter",
+   "video": false,
+   "vote_average": 0,
+   "vote_count": 0
+   },
+   {
+   "adult": false,
+   "backdrop_path": null,
+   "genre_ids": [],
+   "id": 919590,
+   "original_language": "de",
+   "original_title": "Phantastische Harry Potter Momente - Das große SAT.1 Spezial",
+   "overview": "",
+   "popularity": 42.551,
+   "poster_path": "/1Ci05BbrRgc8qwKSvliJH6gqzol.jpg",
+   "release_date": "2021-10-31",
+   "title": "Phantastische Harry Potter Momente - Das große SAT.1 Spezial",
+   "video": true,
+   "vote_average": 9,
+   "vote_count": 1
+   },
+   {
+   "adult": false,
+   "backdrop_path": null,
+   "genre_ids": [
+   10402
+   ],
+   "id": 904622,
+   "original_language": "en",
+   "original_title": "Harry Potter: The Musical",
+   "overview": "",
+   "popularity": 8.426,
+   "poster_path": "/8XBJM8dBdGc4Kgq7S34auGYg7CE.jpg",
+   "release_date": "2009-04-09",
+   "title": "Harry Potter: The Musical",
+   "video": false,
+   "vote_average": 0,
+   "vote_count": 0
+   },
+   {
+   "adult": false,
+   "backdrop_path": null,
+   "genre_ids": [
+   99
+   ],
+   "id": 319391,
+   "original_language": "en",
+   "original_title": "J.K. Rowling and the Birth of Harry Potter",
+   "overview": "",
+   "popularity": 10.517,
+   "poster_path": "/hY6Ndq1O4JiEngZ7xIOtcLUCDTX.jpg",
+   "release_date": "2004-12-07",
+   "title": "J.K. Rowling and the Birth of Harry Potter",
+   "video": true,
+   "vote_average": 6.2,
+   "vote_count": 5
+   },
+   {
+   "adult": false,
+   "backdrop_path": null,
+   "genre_ids": [
+   99,
+   10751
+   ],
+   "id": 116972,
+   "original_language": "en",
+   "original_title": "Discovering the Real World of Harry Potter",
+   "overview": "",
+   "popularity": 9.151,
+   "poster_path": "/yLpnOqKw3ZycFu8t5Gil1BqTbnB.jpg",
+   "release_date": "2001-12-10",
+   "title": "Discovering the Real World of Harry Potter",
+   "video": false,
+   "vote_average": 6.6,
+   "vote_count": 9
+   },
+   {
+   "adult": false,
+   "backdrop_path": null,
+   "genre_ids": [
+   99
+   ],
+   "id": 430481,
+   "original_language": "en",
+   "original_title": "Harry Potter: Witchcraft Repackaged",
+   "overview": "",
+   "popularity": 4.148,
+   "poster_path": null,
+   "release_date": "2001-01-01",
+   "title": "Harry Potter: Witchcraft Repackaged",
+   "video": false,
+   "vote_average": 5.8,
+   "vote_count": 6
+   },
+   {
+   "adult": false,
+   "backdrop_path": null,
+   "genre_ids": [],
+   "id": 341415,
+   "original_language": "en",
+   "original_title": "'Harry Potter': Behind the Magic",
+   "overview": "",
+   "popularity": 3.571,
+   "poster_path": null,
+   "release_date": "2005-11-19",
+   "title": "'Harry Potter': Behind the Magic",
+   "video": false,
+   "vote_average": 7,
+   "vote_count": 4
+   },
+   {
+   "adult": false,
+   "backdrop_path": null,
+   "genre_ids": [
+   99
+   ],
+   "id": 109004,
+   "original_language": "en",
+   "original_title": "The Seeker's Guide to Harry Potter",
+   "overview": "",
+   "popularity": 3.548,
+   "poster_path": null,
+   "release_date": "2010-11-23",
+   "title": "The Seeker's Guide to Harry Potter",
+   "video": false,
+   "vote_average": 6.5,
+   "vote_count": 6
+   }
+   ],
+   "total_pages": 2,
+   "total_results": 28
+   }
+*/

@@ -1,0 +1,127 @@
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+
+header {
+   position: sticky;
+   top: 0;
+   width: 100%;
+   background-color: cadetblue;
+   display: flex;
+   justify-content: space-between;
+   padding: 0 4%;
+}
+
+#Logo {
+   height: 50px;
+}
+
+header ul {
+   background-color: chocolate;
+   list-style: none;
+   display: flex;
+   align-items: center;
+   width: 400px;
+   justify-content: space-evenly;
+}
+
+body{
+   background-color: #141414;
+}
+
+#main {
+   background-color: darkgoldenrod;
+   min-width: 100%;
+   min-height: 10vh;
+}
+
+ul li {
+   background-color: cornflowerblue;
+}
+
+.container_movies{
+   background-color: rgb(138, 0, 138);
+   padding: 10px 0px;
+   position: relative;
+}
+
+.container_movies span{
+   min-width: 4%;
+   min-height: 100%;
+   z-index: 10;
+   transition: background-color 200ms ease-out;
+}
+
+.scroll_left{
+   position: absolute;
+   top: 0%;
+   left: 0%;
+}
+
+.scroll_right{
+   position: absolute;
+   top: 0%;
+   left: 100%;
+   transform: translateX(-100%);
+}
+
+.container_movies:hover span{
+   background-color: rgba(20, 20, 20, 0.7);
+   cursor: pointer;
+}
+
+.most_popular{
+   background-color: crimson;
+   min-width: 10px;
+   min-height: 10px;
+   height: 100%;
+   display: flex;
+   /*overflow-x: visible ;*/
+   overflow-x: scroll;
+   padding: 0px 0px;
+   scroll-behavior: smooth;
+   position: relative;
+}
+
+
+
+#test {
+   background-color: darkgreen;
+   position: absolute;
+   top: 0%;
+   left: 50%;
+}
+
+.most_popular div{
+   /*margin: 10px 10px;*/
+   margin-left: 10px;
+   background-color: rgb(138, 138, 246);
+   height: 100%;
+}
+
+
+.most_popular div:nth-child(1){
+   margin-left: calc(4% + 10px);
+}
+
+
+
+.most_popular div img{
+   width: 200px;
+   transition: width 200ms ease-in-out;
+}
+.most_popular div img:hover{
+   width: 250px;
+}
+
+
+h2 {
+   font-family: 'Poppins', sans-serif;
+   font-size: 1.3rem;
+   color: #e5e5e5;
+}
+
+
