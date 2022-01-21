@@ -11,34 +11,32 @@
    </head>
    <body>
       <header class="page-header">
-         <a href="#">
-            Netflix
-            <img src="Images/Logo.png" id="Logo" alt="">
+         <a href="#" style="display: flex; align-items: center;">
+            <img src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg" id="Logo" alt="">
          </a>
 
          <ul>
-            <a href="#">Lorem.</a>
-            <a href="#">Lorem.</a>
-            <a href="#">Lorem.</a>
-            <a href="#">Lorem.</a>
-            <a href="#">Lorem.</a>
+            <a href="#">Films</a>
+            <a href="#">Séries</a>
+            <a href="#">Ma liste</a>
+            <a href="#">Mes </a>
          </ul>
       </header>
 
 
-      <section id="main">
-         <p>Lorem ipsum dolor sit amet.</p>
-      </section>
+      <section id="billboard"></section>
 
       <section>
          <h2>Tendances actuelles</h2>
-         <div class="most_popular"></div>
+         <div class="container_movies most_popular">
+            <span class="scroll_left" onclick="Scroll('Left')"></span>
+            <span class="scroll_right" onclick="Scroll('Right')"></span>
+         </div>
          <div class="container_movies">
-            <!-- 
+            
             <span class="scroll_left" onclick="Scroll('Left')"></span>
             <span class="scroll_right" onclick="Scroll('Right')"></span>
 
-             -->
 
              <p>Lorem.</p>
             
@@ -51,6 +49,7 @@
       </section>
 
       <input type="search" id="site-search" name="q" aria-label="Search through site content">
+      
       
 
       <script src="script.js"></script>

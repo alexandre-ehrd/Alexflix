@@ -4,3 +4,12 @@
 - Chercher un acteur :
 « @Jonathan Cohen »
 
+
+L'utilisateur a une liste de film : 
+- Il peut ajouter n'importe quel films ou séries à sa liste 
+- Si il len(ma_liste) > 0  --> créer une section dans la catégorie
+{
+   Enregistrer dans les cookies de navigateur [BOF]
+}
+
+L'utilisateur
