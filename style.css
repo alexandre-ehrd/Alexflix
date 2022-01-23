@@ -9,27 +9,11 @@
 }
 
 :root{
-   --color-background-gray: #141414
-}
+   --color-background-gray: #141414;
 
+   --height-carousel-movies: 150px;
 
-
-
-
-
-
-
-#Logo {
-   height: 50px;
-}
-
-header ul {
-   background-color: chocolate;
-   list-style: none;
-   display: flex;
-   align-items: center;
-   width: 400px;
-   justify-content: space-evenly;
+   --pading-left: 40px
 }
 
 body{
@@ -47,6 +31,7 @@ h2 {
    font-family: 'Poppins', sans-serif;
    font-size: 1.3rem;
    color: #e5e5e5;
+   margin-bottom: 10px;
 }
 
 p {
@@ -54,6 +39,10 @@ p {
    font-size: 1rem;
    color: #e5e5e5;
    text-align: justify;
+}
+
+section {
+   margin: 20px 0px;
 }
 
 
@@ -70,16 +59,24 @@ header {
    z-index: 50;
 }
 
+#Logo {
+   height: 50px;
+}
+
+header ul {
+   background-color: chocolate;
+   list-style: none;
+   display: flex;
+   align-items: center;
+   width: 400px;
+   justify-content: space-evenly;
+}
 
 
 #billboard > * ,
 #billboard {
-   
    padding: 0;
    margin: 0;
-}
-
-#billboard{
    overflow-y: hidden;
    position: relative;
    border: solid 1px hotpink;
@@ -91,9 +88,9 @@ header {
    position: absolute;
    height: 100%;
    top: 0%;
-   background: linear-gradient(90deg,rgba(0,0,0,.5) 0,rgba(0,0,0,0) 75%);
+   background: linear-gradient(90deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.2) 75%);
+   z-index: 5;
 }
-
 
 #billboard-shadow{
    position: absolute;
@@ -114,6 +111,7 @@ header {
    height: 50%;
    display: flex;
    flex-direction: column;
+   z-index: 10;
 }
 
 #billboard-info p {
@@ -124,87 +122,85 @@ header {
    overflow: hidden
 }
 
-
-
-
-
-
-section {
-   margin: 100px 0px;
+section h2 {
+   padding-left: var(--pading-left);
 }
 
 
-ul li {
-   background-color: cornflowerblue;
+.carousel-movies {
+   /* background-color: coral; */
+   height: var(--height-carousel-movies);
+   overflow-y: hidden;
+   display: flex;
+   overflow-x: scroll;
+   scroll-behavior: smooth;
+}
+.carousel-movies::-webkit-scrollbar {
+   display: none;
 }
 
-.container_movies{
-   margin-top: 100px;
-   background-color: rgb(138, 0, 138);
-   padding: 10px 0px;
-   position: relative;
-}
-
-.scroll_left, 
-.scroll_right{
-   min-width: 4%;
-   min-height: 100%;
-   position: absolute;
-   top: 0%;
+.scroll-btn {
+   cursor: pointer;
    z-index: 10;
+   min-width: 40px;
+   min-height: var(--height-carousel-movies);
+   position: absolute;
    transition: background-color 200ms ease-out;
-}  
-.scroll_left{
+}
+.carousel-movies:hover .scroll-btn{
+   background-color: rgba(20, 20, 20, 0.7);
+   
+}
+.scroll-left{
    left: 0%;
 }
-.scroll_right{
+.scroll-right{
    left: 100%;
    transform: translateX(-100%);
 }
 
-.container_movies:hover .scroll_left, 
-.container_movies:hover .scroll_right{
-   background-color: rgba(20, 20, 20, 0.7);
-   cursor: pointer;
+.card {
+   margin-right: 15px;
+   position: relative;
 }
-
-.most_popular{
-   background-color: crimson;
-   min-width: 10px;
-   min-height: 10px;
-   height: 100%;
-   display: flex;
-   /*overflow-x: visible ;*/
-   overflow-x: scroll;
-   padding: 0px 0px;
-   scroll-behavior: smooth;
-   scroll-snap-type: x mandatory  !important;
-  /*  position: relative; */
-}
-
-.most_popular div{
-   /*margin: 10px 10px;*/
-   margin-left: 10px;
-   background-color: rgb(138, 138, 246);
-   height: 100%;
+.carousel-movies .card:nth-child(3){
+   margin-left: var(--pading-left);
 }
 
 
-.most_popular div:nth-child(1){
-   margin-left: calc(4% + 10px);
-}
-
-
-
-.most_popular div img{
-   width: 200px;
-   transition: width 200ms ease-in-out;
-   cursor: pointer;
-}
-.most_popular div img:hover{
+.carousel-movies input[type=image]{
    width: 250px;
+   height: 100%;
+   border-radius: 3px;
+   background-color: cornflowerblue;
+}
+
+.previsualisation-card {
+   background-color: plum;
+   /* visibility: hidden; */
+   width: 100%;
+   min-height: var(--height-carousel-movies);
+   position: absolute;
+   top: 0%;
+   left: 50%;
+   transform: translateX(-50%);
+   cursor: pointer;
+   z-index: 5;
+   transition: width 300ms ease-out 1.5s;
+}
+.card:hover .previsualisation-card{
+   visibility: visible;
+   background-color: paleturquoise;
+   width: 130%;
+   
+}
+
+.card:hover .previsualisation-card img,
+.card .previsualisation-card img{
+   width: 10%;
+   background-color: rgb(0, 255, 149);
 }
 
 
-
+/* On peut ausi utiliser visibilty :hidden pour la modal qui s'ouvre */
 

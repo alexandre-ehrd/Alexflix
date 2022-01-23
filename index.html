@@ -28,29 +28,21 @@
 
       <section>
          <h2>Tendances actuelles</h2>
-         <div class="container_movies most_popular">
-            <span class="scroll_left" onclick="Scroll('Left')"></span>
-            <span class="scroll_right" onclick="Scroll('Right')"></span>
-         </div>
-         <div class="container_movies">
-            
-            <span class="scroll_left" onclick="Scroll('Left')"></span>
-            <span class="scroll_right" onclick="Scroll('Right')"></span>
-
-
-             <p>Lorem.</p>
-            
+         <div class="carousel-movies" id="most-popular">
+            <span class="scroll-btn scroll-left" onclick="Scroll(this.parentNode, 'Left')"></span>
+            <span class="scroll-btn scroll-right" onclick="Scroll(this.parentNode, 'Right')"></span>
          </div>
       </section>
 
       <section>
-         <h2>Comédies</h2>
-         <div class="content_card"></div>
+         <h2>Harry Potter</h2>
+         <div class="carousel-movies" id="harry-potter">
+            <span class="scroll-btn scroll-left" onclick="Scroll(this.parentNode, 'Left')"></span>
+            <span class="scroll-btn scroll-right" onclick="Scroll(this.parentNode, 'Right')"></span>
+         </div>
       </section>
 
       <input type="search" id="site-search" name="q" aria-label="Search through site content">
-      
-      
 
       <script src="script.js"></script>
    </body>
