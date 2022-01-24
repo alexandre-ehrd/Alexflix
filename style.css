@@ -10,6 +10,7 @@
 
 :root{
    --color-background-gray: #141414;
+   --color-text-white: #e5e5e5;
 
    --height-carousel-movies: 150px;
 
@@ -23,21 +24,21 @@ body{
 h1 {
    font-family: 'Poppins', sans-serif;
    font-size: 2rem;
-   color: #e5e5e5;
+   color: var(--color-text-white);
    text-align: left;
 }
 
 h2 {
    font-family: 'Poppins', sans-serif;
    font-size: 1.3rem;
-   color: #e5e5e5;
+   color: var(--color-text-white);
    margin-bottom: 10px;
 }
 
 p {
    font-family: 'Poppins', sans-serif;
    font-size: 1rem;
-   color: #e5e5e5;
+   color: var(--color-text-white);
    text-align: justify;
 }
 
@@ -140,16 +141,20 @@ section h2 {
 }
 
 .scroll-btn {
-   cursor: pointer;
-   z-index: 10;
+   visibility: visible;
    min-width: 40px;
    min-height: var(--height-carousel-movies);
+   background-color: rgba(20, 20, 20, 0.7);
    position: absolute;
+   z-index: 10;
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   align-items: center;
    transition: background-color 200ms ease-out;
 }
 .carousel-movies:hover .scroll-btn{
-   background-color: rgba(20, 20, 20, 0.7);
-   
+   visibility: visible;
 }
 .scroll-left{
    left: 0%;
@@ -157,6 +162,11 @@ section h2 {
 .scroll-right{
    left: 100%;
    transform: translateX(-100%);
+}
+
+.scroll-btn i{
+   font-size: xx-large;
+   color: var(--color-text-white);
 }
 
 .card {
