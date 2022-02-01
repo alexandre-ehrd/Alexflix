@@ -141,7 +141,7 @@ section h2 {
 }
 
 .scroll-btn {
-   visibility: visible;
+   visibility: hidden;
    min-width: 40px;
    min-height: var(--height-carousel-movies);
    background-color: rgba(20, 20, 20, 0.7);
