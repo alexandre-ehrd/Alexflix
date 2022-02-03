@@ -10,20 +10,40 @@ const harry_potter = document.getElementById("harry-potter");
 
 var dict = {};
 
+var carousel_Pages = {};
 
 
 function Scroll(scroll_view, direction){
    let window_width = window.innerWidth - 40;
-   let movie_card_width = 250;
+   let movie_card_width = 265;
    let nb_element_to_scroll = window_width / movie_card_width;
+	if (nb_element_to_scroll > 1){
+		nb_element_to_scroll = Math.floor(nb_element_to_scroll);
+	}
+
    console.log(nb_element_to_scroll)
 	if (direction === 'Left'){
-	   scroll_view.scroll(scroll_view.scrollLeft - 160*nb_element_to_scroll, 0);
+	   scroll_view.scroll(scroll_view.scrollLeft - movie_card_width*nb_element_to_scroll, 0);
 	}
 	else{
-	   scroll_view.scroll(scroll_view.scrollLeft + 160*nb_element_to_scroll, 0);
+		scroll_view.scroll(scroll_view.scrollLeft + movie_card_width*nb_element_to_scroll, 0);
 	}
+	
+	t();
 }
+
+function t(){
+	var height = most_popular.scrollWidth;
+	var sLeft = most_popular.scrollLeft;
+	var pourcentage = (sLeft/height)*100;
+
+	if (pourcentage > 40){
+		console.log("Charger des nouveaux films")
+		GetMovies_URL(most_popular, `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&language=fr-FR`);
+	}
+	/* console.log(`${pourcentage}% (${sLeft}, ${height})`); */
+}
+
 
 function Click_Movie(movie){
    console.log('Click ->', dict[movie].title, dict[movie]);
@@ -49,7 +69,7 @@ function Open_Movies_Genres(){
          response.json().then(data => {
             for (let i = 0; i < data['request'].length; i++){
                // Créer un carousel pour chaque genre cinématographique
-               Create_Carousel_Movies(data['request'][i]);
+               Create_Carousel_Movies(data['request'][i], );
             }
          })
       }
@@ -60,6 +80,7 @@ function Open_Movies_Genres(){
 }
 
 function Create_Carousel_Movies(genre){
+	var URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genre['id']}`;
 	// Section
 	let section_movies = document.createElement('section');
 	BODY.appendChild(section_movies);
@@ -77,16 +98,24 @@ function Create_Carousel_Movies(genre){
 	</span>
 	<span class="scroll-btn scroll-right" onclick="Scroll(this.parentNode, 'Right')">
 		<i class="bi bi-chevron-compact-right"></i>
-	</span>
-	`;
+	</span>`;
 	section_movies.appendChild(carousel);
 	// Appeller la fonction pour remplir le carousel
-	let URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genre['id']}`;
 	GetMovies_URL(carousel, URL);
 }
 
 
 function GetMovies_URL(movie_container, URL){
+	if (URL in carousel_Pages){
+		carousel_Pages[URL] += 1;
+	}
+	else {
+		carousel_Pages[URL] = 1;
+	}
+	console.log(`Page ${carousel_Pages[URL]}`)
+
+	URL += `&page=${carousel_Pages[URL]}`;
+	
 	fetch(URL).then(response => {
 	if (response.ok){
 		response.json().then(list_movies => {
@@ -103,14 +132,15 @@ function GetMovies_URL(movie_container, URL){
 }
 
 function Create_Card_Movie(movie_container, movie){
-   if (movie.id in dict){
+   if (movie.id in dict && 1===2){
       console.log(movie.title, '-> déjà affiché !');
    }
 
+	
+	if (movie.backdrop_path !== null){
 	// Créer la carte
 	let card = document.createElement('div');
 	movie_container.appendChild(card);
-	if (movie.backdrop_path !== null){
 	// THUMBNAIL
 	url_image = `https://image.tmdb.org/t/p/w300/${movie.backdrop_path}`
 	card.classList.add("card")

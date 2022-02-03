@@ -136,9 +136,9 @@ section h2 {
    overflow-x: scroll;
    scroll-behavior: smooth;
 }
-.carousel-movies::-webkit-scrollbar {
-   display: none;
-}
+/* .carousel-movies::-webkit-scrollbar {
+   display: block;
+} */
 
 .scroll-btn {
    visibility: hidden;
@@ -158,6 +158,7 @@ section h2 {
 }
 .scroll-left{
    left: 0%;
+   /* display: none; */
 }
 .scroll-right{
    left: 100%;
