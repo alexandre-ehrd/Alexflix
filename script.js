@@ -51,14 +51,16 @@ function Click_Movie(movie){
 
 
 function Create_BillBoard(movie){
-   BILLBOARD_CONTAINER.innerHTML = `
+	if (BILLBOARD_CONTAINER.innerHTML == ""){
+		BILLBOARD_CONTAINER.innerHTML = `
 	   <img src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" alt="" width="100%">
 	   <div id="billboard-info">
-	   	<h1>${movie.title}</h1>
-	   	<p>${movie.overview}</p>
+		<h1>${movie.title}</h1>
+		<p>${movie.overview}</p>
 	   </div>
 	   <div id="billboard-shadow"></div>
-   `;
+		`;
+	}
 }
 
 
@@ -69,7 +71,7 @@ function Open_Movies_Genres(){
          response.json().then(data => {
             for (let i = 0; i < data['request'].length; i++){
                // Créer un carousel pour chaque genre cinématographique
-               Create_Carousel_Movies(data['request'][i], );
+               Create_Carousel_Movies(data['request'][i]);
             }
          })
       }
@@ -119,6 +121,7 @@ function GetMovies_URL(movie_container, URL){
 	fetch(URL).then(response => {
 	if (response.ok){
 		response.json().then(list_movies => {
+			Create_BillBoard(list_movies['results'][0])
 		   for (let i_movie = 0; i_movie < list_movies['results'].length; i_movie++) {
             // Créer les cartes de chaque films
 		      Create_Card_Movie(movie_container, list_movies['results'][i_movie]);
@@ -156,6 +159,16 @@ function Create_Card_Movie(movie_container, movie){
 	}
 }
 
-GetMovies_URL(most_popular, `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&language=fr-FR`);
+/* GetMovies_URL(most_popular, `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&language=fr-FR`);
 GetMovies_URL(harry_potter, `https://api.themoviedb.org/3/search/movie?api_key=9589339f8da90a06aed6e3d2b11f4901&language=fr-FR&query=Harry Potter`);
-Open_Movies_Genres();
+Open_Movies_Genres(); */
+
+
+
+
+
+import {Header} from './Header.js';
+
+BODY.innerHTML = Header();
+
+Header();
