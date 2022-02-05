@@ -1,9 +1,17 @@
+@import './style.css';
+
+i {
+   margin-right: 15px;
+   font-size: 22px;
+}
+
+
 
 #billboard > * ,
 #billboard {
    padding: 0;
    margin: 0;
-   overflow-y: hidden;
+   /* overflow-y: hidden; */
    position: relative;
    border: solid 1px hotpink;
 }
@@ -18,7 +26,7 @@
    z-index: 5;
 }
 
-#billboard-shadow{
+#billboard-shadow-bottom{
    position: absolute;
    width: 100%;
    height: 75px;
@@ -51,10 +59,9 @@
 #billboard-informations {
    border: solid 1px rgb(255, 0, 128);
    position: absolute;
-   top: 20%;
-   margin-left: 5vh;
-   width: 35%;
-   overflow: hidden;
+   top: 0%;
+   max-width: 35%;
+   /* overflow: hidden; */
    text-overflow: ellipsis;
    height: 50%;
    display: flex;
@@ -64,26 +71,52 @@
 }
 
 
+.billboard-movie-rank {
+   display: flex;
+}
+
+.billboard-movie-rank > * {
+   font-size: 1.1rem;
+   font-weight: 600;
+   color: var(--color-white);
+}
+
+
+.billboard-movie-synopsis p {
+   display: -webkit-box;
+   -webkit-line-clamp: 6;
+   -webkit-box-orient: vertical;
+   text-align: left;
+   text-overflow: ellipsis;
+   overflow: hidden;
+}
+
+
 
 
 .billboard-movie-buttons-container {
    justify-self: bottom;
    display: flex;
-   justify-content: space-between;
+   /* justify-content: space-between; */
+   gap: 10px;
 }
 
 .billboard-movie-button {
-   min-width: 60px;
+   /* max-width: 450%; */
    border-radius: 4px;
    display: flex;
-   justify-content: space-between;
    align-items: center;
-   padding: 5px 15px;
-   gap: 10px;
+   padding: 8px 15px;
    cursor: pointer;
+   overflow: hidden;
+   border: 2px solid transparent;
+   position: relative;
+}
+.billboard-movie-button:active{
+   border: 2px solid white;
 }
 #billboard-movie-button-liste{
-   background-color: white;
+   background-color: var(--color-white);
 }
 #billboard-movie-button-liste:hover{
    background-color: rgba(255,255,255,0.75);
@@ -97,17 +130,64 @@
 
 
 .billboard-movie-button p {
-   font-size: 1.1rem;
-   font-weight: 500;
+   font-weight: 600;
+   word-wrap: none;
+   word-break: none;
 }
-#billboard-movie-button-liste p {
+#billboard-movie-button-liste > * {
    color: black;
 }
-#billboard-movie-button-information p {
-   color: white;
+#billboard-movie-button-information > * {
+   color: var(--color-white);
 }
 
-.billboard-movie-button span {
-   margin-right: 4px;
-   font-size: 22px;
+
+@media (max-width: 570px) {
+   i {
+      margin-right: 0px;
+   }
+   #billboard-informations {
+      min-width: 100%;
+   }
+   .billboard-movie-title h1 {
+      text-align: center;
+   }
+   .billboard-movie-rank,
+   .billboard-movie-synopsis,
+   .billboard-movie-button p {
+      display: none;
+   }
+   
 }
+
+
+
+.parent {
+   background-color: rgb(17, 68, 68);
+}
+
+.parent > * {
+   border: 1px solid pink;
+   max-height: 50px;
+}
+   
+.div1 { grid-area: 1 / 1 / 2 / 2; }
+.div2 { grid-area: 2 / 1 / 3 / 2; }
+.div3 {
+   grid-area: 3 / 1 / 5 / 2;
+   text-overflow: ellipsis;
+   text-align: justify;
+   height: 100px;
+}
+.div3 p {
+   /* white-space: nowrap;
+   overflow: hidden; */
+   text-align: left;
+   display: -webkit-box;
+   -webkit-line-clamp: 4;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+.div4 { grid-area: 5 / 1 / 6 / 2; }
