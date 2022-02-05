@@ -11,9 +11,12 @@
 
       <title>Alexflix</title>
       <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="/src/Billboard.css">
 
    </head>
    <body>
+
+
       <header class="page-header">
          <a href="#" style="display: flex; align-items: center;">
             <img src="Images/Logo.png" id="Logo" alt="">
@@ -28,10 +31,40 @@
       </header>
 
 
-      <section id="billboard"></section>
+      <section id="billboard">
+
+         
+         <img src="https://images.unsplash.com/photo-1644063414496-5e48002d614b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" width="100%">
+         <div id="billboard-informations">
+
+            <div class="billboard-movie-title">
+               <h1>Lorem.</h1>
+            </div>
+
+            <div class="billboard-movie-title">
+               <i class="bi bi-award"></i>
+               <p>N°<span>x</span> aujourd'hui </p>
+            </div>
+
+            <div class="billboard-movie-synopsis">
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quisquam cumque quae repudiandae alias! Quod!</p>
+            </div>
+
+            <div class="billboard-movie-buttons-container">
+               <div class="billboard-movie-button" id="billboard-movie-button-liste">
+                  <p><span class="bi bi-bookmark-plus"></span> Ma liste</p>
+               </div>
+               <div class="billboard-movie-button" id="billboard-movie-button-information">
+                  <p><span class="bi bi-info-circle"></span> Plus d'infos</p>
+               </div>
+            </div>
+
+         </div>
+         <div id="billboard-shadow"></div>
+      </section>
 
       
-      <section>
+      <!-- <section>
          <h2>Tendances actuelles</h2>
          <div class="carousel-movies" id="most-popular">
             <span class="scroll-btn scroll-left" onclick="Scroll(this.parentNode, 'Left')">
@@ -53,12 +86,12 @@
                <i class="bi bi-chevron-compact-right"></i>
             </span>
          </div>
-      </section>
+      </section> -->
 
       
 
       <!-- <input type="search" id="site-search" name="q" aria-label="Search through site content"> -->
 
-      <script src="/src/script.js" type="module"></script>
+      <script src="/src/scridpt.js" type="module"></script>
    </body>
 </html>

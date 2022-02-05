@@ -168,7 +168,9 @@ Open_Movies_Genres(); */
 
 
 import {Header} from './Header.js';
+import {Billboard} from './Billboard.js';
 
 BODY.innerHTML = Header();
+BODY.innerHTML += Billboard();
 
-Header();
+

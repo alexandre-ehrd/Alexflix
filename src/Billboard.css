@@ -1,0 +1,113 @@
+
+#billboard > * ,
+#billboard {
+   padding: 0;
+   margin: 0;
+   overflow-y: hidden;
+   position: relative;
+   border: solid 1px hotpink;
+}
+/* Ombre sur le coté gauche */
+#billboard::before{
+   content: '';
+   width: 100%;
+   position: absolute;
+   height: 100%;
+   top: 0%;
+   background: linear-gradient(90deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.2) 75%);
+   z-index: 5;
+}
+
+#billboard-shadow{
+   position: absolute;
+   width: 100%;
+   height: 75px;
+   bottom: 0;
+   background: linear-gradient(0deg, rgba(20,20,20,1) 0%, rgba(20,20,20,.55) 50%, rgba(20,20,20,0) 100%);
+}
+/* 
+#billboard-info {
+   border: solid 1px rgb(255, 0, 128);
+   position: absolute;
+   top: 20%;
+   margin-left: 5vh;
+   width: 30%;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   height: 50%;
+   display: flex;
+   flex-direction: column;
+   z-index: 10;
+}
+
+#billboard-info p {
+   border: solid 2px blue;
+   text-overflow: ellipsis;
+   width: 100%;
+   height: 100%;
+   overflow: hidden
+} */
+
+#billboard-informations {
+   border: solid 1px rgb(255, 0, 128);
+   position: absolute;
+   top: 20%;
+   margin-left: 5vh;
+   width: 35%;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   height: 50%;
+   display: flex;
+   flex-direction: column;
+   z-index: 10;
+   gap: 15px;
+}
+
+
+
+
+.billboard-movie-buttons-container {
+   justify-self: bottom;
+   display: flex;
+   justify-content: space-between;
+}
+
+.billboard-movie-button {
+   min-width: 60px;
+   border-radius: 4px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 5px 15px;
+   gap: 10px;
+   cursor: pointer;
+}
+#billboard-movie-button-liste{
+   background-color: white;
+}
+#billboard-movie-button-liste:hover{
+   background-color: rgba(255,255,255,0.75);
+}
+#billboard-movie-button-information {
+   background-color: rgba(109,109,110,0.7);
+}
+#billboard-movie-button-information:hover {
+   background-color: rgba(109,109,110,0.4);
+}
+
+
+.billboard-movie-button p {
+   font-size: 1.1rem;
+   font-weight: 500;
+}
+#billboard-movie-button-liste p {
+   color: black;
+}
+#billboard-movie-button-information p {
+   color: white;
+}
+
+.billboard-movie-button span {
+   margin-right: 4px;
+   font-size: 22px;
+}
