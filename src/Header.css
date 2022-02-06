@@ -1,0 +1,44 @@
+@import './style.css';
+
+.header {
+   width: 100%;
+   height: 68px;
+   position: fixed;
+   top: 0;
+   padding: 0px var(--padding-left);
+   display: flex;
+   align-items: center;
+   gap: 18px;
+   z-index: 15;
+   background: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));;
+   transition: background-color 400ms ease-in-out;
+}
+.header-black {
+   background-color: rgb(20, 20, 20);
+}
+
+#Logo {
+   max-height: 25px;
+   margin-right: 25px;
+   
+}
+
+
+
+.header-buton{
+   font-family: 'Poppins', sans-serif;
+   font-size: 1rem;
+   color: var(--color-light-grey);
+   font-weight: 500;
+   text-decoration: none;
+   transition: color 400ms ease-in-out;
+}
+.header-buton:hover {
+   color: var(--color-dark-grey);
+}
+
+.header-buton-active {
+   color: white !important;
+   font-weight: 700;
+   cursor: default;
+}

@@ -1,10 +1,14 @@
 function Billboard(movie, popularity_rank){
+   var title = function() {
+      return (movie.title ? movie.title : movie.name);
+   }
+
 	return (`
       <section class="billboard">
          <img src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" alt="" width="100%"></img>
          <div class="billboard-informations">
             <div class="billboard-movie-title">
-               <h1>${movie.title}</h1>
+               <h1>${title()}</h1>
             </div>
    
             <div class="billboard-movie-rank">
@@ -32,6 +36,7 @@ function Billboard(movie, popularity_rank){
 	`);
 	
 }
+
 
 
 export {Billboard};

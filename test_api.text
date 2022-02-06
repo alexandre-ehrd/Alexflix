@@ -19,10 +19,25 @@ Anime
 */
 
 
+https://api.themoviedb.org/3/search/company?api_key=9589339f8da90a06aed6e3d2b11f4901&query=Netflix&page=1
 
+{
+   "page": 1,
+   "results": [
+   {
+      "id": 145174,
+      "logo_path": null,
+      "name": "Netflix International Pictures",
+      "origin_country": "US"
+   }
+   ],
+   "total_pages": 1,
+   "total_results": 1
+}
 
+https://api.themoviedb.org/3/discover/movie?api_key=9589339f8da90a06aed6e3d2b11f4901&language=fr-FR&sort_by=primary_release_date.desc&page=1&with_companies=145174
 
-
+https://api.themoviedb.org/3/discover/tv?api_key=9589339f8da90a06aed6e3d2b11f4901&with_networks=213
 
 
 

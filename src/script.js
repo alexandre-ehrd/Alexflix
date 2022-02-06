@@ -175,6 +175,7 @@ BODY.innerHTML += Billboard(); */
 
 GetMovies_URL(harry_potter, "https://api.themoviedb.org/3/search/movie?api_key=9589339f8da90a06aed6e3d2b11f4901&language=fr-FR&query=Harry%20Potter");
 
+/* https://api.themoviedb.org/3/discover/tv?api_key=9589339f8da90a06aed6e3d2b11f4901&with_networks=213 */
 
 
 const obj = {
@@ -199,4 +200,45 @@ const obj = {
 	"vote_count": 14280
 }
 
-BODY.innerHTML += Billboard(obj, 4);
+const HP = {
+	"adult": false,
+	"backdrop_path": "/8rft8A9nH43IReybFtYt21ezfMK.jpg",
+	"genre_ids": [
+	99
+	],
+	"id": 899082,
+	"original_language": "en",
+	"original_title": "Harry Potter 20th Anniversary: Return to Hogwarts",
+	"overview": "L'histoire enchanteresse du making-of, racontée à travers de toutes nouvelles interviews et conversations avec les acteurs, invitant les fans à un voyage magique à travers l'une des franchises de films les plus appréciées de tous les temps.",
+	"popularity": 390.127,
+	"poster_path": "/q3H5P8c0ZetMcV1ajM0Qbtv0BlV.jpg",
+	"release_date": "2022-01-01",
+	"title": "Harry Potter fête ses 20 ans : retour à Poudlard",
+	"video": false,
+	"vote_average": 8.3,
+	"vote_count": 902
+}
+
+const serie = {
+	"backdrop_path": "/oQd4y7GjGWJfkw7Ub8rZhjNjTvw.jpg",
+	"first_air_date": "2019-06-28",
+	"genre_ids": [
+	35
+	],
+	"id": 89785,
+	"name": "Family Business",
+	"origin_country": [
+	"FR"
+	],
+	"original_language": "fr",
+	"original_name": "Family Business",
+	"overview": "Quand ils apprennent de source \"sûre\" que le cannabis va être légalisé, un entrepreneur et sa famille décident de transformer leur boucherie sur le déclin en coffee-shop.",
+	"popularity": 11.242,
+	"poster_path": "/qftRRegBYNwNoutX660hMx85BMi.jpg",
+	"vote_average": 7.2,
+	"vote_count": 55
+}
+
+BODY.innerHTML += Header();
+BODY.innerHTML += Billboard(HP, 4);
+BODY.innerHTML += Billboard(serie, 4);

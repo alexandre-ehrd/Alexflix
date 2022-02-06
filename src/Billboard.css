@@ -19,7 +19,7 @@ i {
    height: 100%;
    position: absolute;
    top: 0%;
-   background: linear-gradient(90deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.2) 75%);
+   background: linear-gradient(90deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.0) 75%);
    z-index: 5;
 }
 
@@ -31,11 +31,17 @@ i {
    background: linear-gradient(0deg, rgba(20,20,20,1) 0%, rgba(20,20,20,.55) 50%, rgba(20,20,20,0) 100%);
 }
 
+.billboard img {
+   height: 100vh;
+   object-fit: cover;
+}
+
 .billboard-informations {
-   max-width: 40%;
+   width: 40%;
+   max-width: 500px;
    position: absolute;
-   top: 15%;
-   margin-left: var(--pading-left);
+   top: 30%;
+   margin-left: var(--padding-left);
    text-overflow: ellipsis;
    display: flex;
    flex-direction: column;
