@@ -20,10 +20,7 @@
 #Logo {
    max-height: 25px;
    margin-right: 25px;
-   
 }
-
-
 
 .header-buton{
    font-family: 'Poppins', sans-serif;
@@ -36,9 +33,8 @@
 .header-buton:hover {
    color: var(--color-dark-grey);
 }
-
 .header-buton-active {
    color: white !important;
-   font-weight: 700;
+   font-weight: 800;
    cursor: default;
 }
