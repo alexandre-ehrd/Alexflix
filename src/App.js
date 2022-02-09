@@ -173,6 +173,7 @@ const serie = {
 
 BODY.innerHTML += Header();
 BODY.innerHTML += Billboard(obj, 4);
+
 /* BODY.innerHTML += Billboard(serie, 4); */
 
 

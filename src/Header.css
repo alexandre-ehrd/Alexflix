@@ -22,7 +22,7 @@
    margin-right: 25px;
 }
 
-.header-buton{
+.header-button{
    font-family: 'Poppins', sans-serif;
    font-size: 1rem;
    color: var(--color-light-grey);
@@ -30,11 +30,38 @@
    text-decoration: none;
    transition: color 400ms ease-in-out;
 }
-.header-buton:hover {
+.header-button:hover {
    color: var(--color-dark-grey);
 }
-.header-buton-active {
+.header-button-active {
    color: white !important;
    font-weight: 800;
    cursor: default;
+}
+
+.header-search-container {
+   background-color: brown;
+   padding: 5px 10px;
+   width: 200px;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   gap: 10px;
+}
+
+.header-search-container-button i {
+   color: var(--color-white);
+   margin: 0px 0px;
+   cursor: pointer;
+}
+
+.header-search-container-input {
+   background-color: aqua;
+   width: 100%;
+   transition: width 400ms ease-in-out;
+}
+
+.header-search-container-button:hover > .header-search-container{
+   
+   visibility: visible;
 }
