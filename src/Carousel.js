@@ -6,7 +6,7 @@ function Carousel(name, URL) {
 	BODY.appendChild(section_movies);
 	
 	// Titre
-	let title = document.createElement('h2');
+	let title = document.createElement('h3');
 	title.innerHTML = name;
 	section_movies.appendChild(title);
 	
