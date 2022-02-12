@@ -13,6 +13,7 @@ function Carousel(name, URL) {
 	carousel_movies.classList.add('carousel-movies');
 	/* carousel.id = `${genre['name']}-${genre['id']}`; */
 	section_movies.appendChild(carousel_movies);
+
 	// Bouton scroll gauche
 	let scroll_boutton_left = document.createElement('span');
 	scroll_boutton_left.classList.add('scroll-btn' ,'scroll-left');
@@ -21,6 +22,7 @@ function Carousel(name, URL) {
 	});
 	scroll_boutton_left.innerHTML = (`<i class="bi bi-chevron-compact-left"></i>`);
 	carousel_movies.appendChild(scroll_boutton_left)
+
 	// Bouton scroll droite
 	let scroll_boutton_right = document.createElement('span');
 	scroll_boutton_right.classList.add('scroll-btn', 'scroll-right');
@@ -32,25 +34,6 @@ function Carousel(name, URL) {
 
 	// Appeller la fonction pour remplir le carousel
 	Fetch_Movies(carousel_movies, URL);
-}
-
-function Scroll_Carousel(scroll_view, direction){
-   let window_width = window.innerWidth - 80;
-   let movie_card_width = 265;
-   let nb_element_to_scroll = window_width / movie_card_width;
-	if (nb_element_to_scroll > 1){
-		nb_element_to_scroll = Math.floor(nb_element_to_scroll);
-	}
-
-   console.log(`Scroll de ${nb_element_to_scroll}`)
-	if (direction === 'Left'){
-	   scroll_view.scroll(scroll_view.scrollLeft - movie_card_width*nb_element_to_scroll, 0);
-	}
-	else{
-		scroll_view.scroll(scroll_view.scrollLeft + movie_card_width*nb_element_to_scroll, 0);
-	}
-	
-	t();
 }
 
 
@@ -89,16 +72,62 @@ function Create_Card_Movie(movie_container, movie){
 		let url_image = `https://image.tmdb.org/t/p/w300/${movie.backdrop_path}`
 		card.classList.add("card")
 		card.innerHTML = `
-			<input type="image" src="${url_image}" alt="${title()}" onclick="Click_Movie(${movie.id})">
+			<input type="image" src="${url_image}" alt="${title()}">
 			<!--
 			<div class="previsualisation-card">
 			<img src="${url_image}" alt="${movie.title}">
 			</div>
 			-->
 		`;
+		card.addEventListener('click', event => {
+			Click_Movie(movie)
+		});
    	/* dict[movie.id] = movie; */
 	}
 }
+
+
+function Scroll_Carousel(scroll_view, direction){
+   let window_width = window.innerWidth - 80;
+   let movie_card_width = 265;
+   let nb_element_to_scroll = window_width / movie_card_width;
+	if (nb_element_to_scroll > 1){
+		nb_element_to_scroll = Math.floor(nb_element_to_scroll);
+	}
+
+   console.log(`Scroll de ${nb_element_to_scroll}`)
+	if (direction === 'Left'){
+	   scroll_view.scroll(scroll_view.scrollLeft - movie_card_width*nb_element_to_scroll, 0);
+	}
+	else{
+		scroll_view.scroll(scroll_view.scrollLeft + movie_card_width*nb_element_to_scroll, 0);
+	}
+	
+	/* t(); */
+}
+
+function Click_Movie(movie){
+	var title = function() {
+      return (movie.title ? movie.title : movie.name);
+   }
+	console.log(title())
+   /* console.log('Click ->', dict[movie].title, dict[movie]); */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function Fetch_Movies__OLD(movie_container, URL){
@@ -128,10 +157,7 @@ function Fetch_Movies__OLD(movie_container, URL){
 	})
 }
 
-function Click_Movie(movie){
-	console.log("click")
-   /* console.log('Click ->', dict[movie].title, dict[movie]); */
-}
+
 
 
 
