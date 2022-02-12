@@ -13,25 +13,6 @@ var dict = {};
 var carousel_Pages = {};
 
 
-function Scroll(scroll_view, direction){
-   let window_width = window.innerWidth - 40;
-   let movie_card_width = 265;
-   let nb_element_to_scroll = window_width / movie_card_width;
-	if (nb_element_to_scroll > 1){
-		nb_element_to_scroll = Math.floor(nb_element_to_scroll);
-	}
-
-   console.log(nb_element_to_scroll)
-	if (direction === 'Left'){
-	   scroll_view.scroll(scroll_view.scrollLeft - movie_card_width*nb_element_to_scroll, 0);
-	}
-	else{
-		scroll_view.scroll(scroll_view.scrollLeft + movie_card_width*nb_element_to_scroll, 0);
-	}
-	
-	t();
-}
-
 function t(){
 	var height = most_popular.scrollWidth;
 	var sLeft = most_popular.scrollLeft;
