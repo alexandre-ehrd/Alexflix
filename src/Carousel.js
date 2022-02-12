@@ -45,12 +45,12 @@ function Fetch_Movies(movie_container, URL){
    	         // Créer les cartes de chaque films
 			      Create_Card_Movie(movie_container, movies_list['results'][movie_index]);
 			   }
-			})
+			});
 		}
 		else{
 			console.error(`L\'Api TMDB renvoie une erreur pour la requête ${URL}`);
 		}
-	})
+	});
 }
 
 
@@ -114,21 +114,7 @@ function Click_Movie(movie){
    /* console.log('Click ->', dict[movie].title, dict[movie]); */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export {Carousel, Click_Movie};
 
 function Fetch_Movies__OLD(movie_container, URL){
 	if (URL in carousel_Pages){
@@ -157,8 +143,3 @@ function Fetch_Movies__OLD(movie_container, URL){
 	})
 }
 
-
-
-
-
-export {Carousel, Click_Movie};

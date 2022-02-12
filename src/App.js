@@ -1,5 +1,5 @@
 import {Header} from './Header.js';
-import {Billboard} from './Billboard.js';
+import {Fetch_Billboard} from './Billboard.js';
 import {Carousel} from './Carousel.js';
 import {requests} from './Requests.js';
 
@@ -11,7 +11,7 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 
 
 // Container pour les films
-const BODY = document.body; // Body
+const BODY = document.body;
 const BILLBOARD_CONTAINER = document.getElementById("billboard"); // Container film à la une qui est directement visible
 
 const most_popular = document.getElementById("most-popular");
@@ -43,8 +43,26 @@ function Open_Movies_Genres(){
    for (let i = 0; i < requests.length; i++){
 		let Carousel_Name = requests[i]['name']
 		let Carousel_Request = `${BASE_URL}${requests[i]['request']}`;
-      // Créer un carousel pour chaque genre cinématographique
+
+		// Billboard 
+		if (i == 0) {
+			Fetch_Billboard(Carousel_Request);
+
+			/* fetch(Carousel_Request).then(response => {
+				if (response.ok){
+					response.json().then(movies_list => {
+						Billboard(movies_list)
+					})
+				}
+				else{
+					console.error(`L\'Api TMDB renvoie une erreur pour la requête ${Carousel_Request}`);
+				}
+			}); */
+
+		}
+		// Carousel
 		Carousel(Carousel_Name, Carousel_Request);
+		
    }
 }
 
@@ -133,7 +151,6 @@ const serie = {
 }
 
 BODY.innerHTML += Header();
-BODY.innerHTML += Billboard(obj, 4);
 Open_Movies_Genres();
 
 
