@@ -1,9 +1,29 @@
+function Fetch_Billboard(URL) {
+   var min = 0;
+   var max = 10;
+   var popularity_rank = Math.round(Math.random() * (max - min) + min);
+   
+   fetch(URL).then(response => {
+      if (response.ok){
+         response.json().then(movies_list => {
+            Billboard(movies_list['results'][popularity_rank], popularity_rank)
+         });
+      }
+      else{
+         console.error(`L\'Api TMDB renvoie une erreur pour la requête ${Carousel_Request}`);
+      }
+   });
+}
+
+
 function Billboard(movie, popularity_rank){
    var title = function() {
       return (movie.title ? movie.title : movie.name);
    }
 
-	return (`
+   const BODY = document.body;
+
+	BODY.innerHTML = (`
       <section class="billboard">
          <img src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" alt="" width="100%"></img>
          <div class="billboard-informations">
@@ -34,15 +54,6 @@ function Billboard(movie, popularity_rank){
          <div class="billboard-shadow-bottom"></div>
       </section>
 	`);
-	
 }
 
-
-
-export {Billboard};
-
-
-
-
-
-/* <img src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" alt="" width="100%"></img> */
+export {Fetch_Billboard};

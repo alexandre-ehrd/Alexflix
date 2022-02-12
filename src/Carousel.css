@@ -1,0 +1,95 @@
+@import './style.css';
+
+.carousel-movies {
+   margin-bottom: 40px;
+   /* background-color: coral; */
+   height: var(--height-carousel-movies);
+   overflow-y: hidden;
+   display: flex;
+   overflow-x: scroll;
+   scroll-behavior: smooth;
+}
+/* .carousel-movies::-webkit-scrollbar {
+   display: none;
+} */
+
+section h3 {
+   padding-left: var(--padding-left);
+}
+
+.scroll-btn {
+   /* visibility: hidden; */
+   min-width: var(--padding-left);
+   min-height: var(--height-carousel-movies);
+   background-color: rgba(20, 20, 20, 0.7);
+   position: absolute;
+   z-index: 10;
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: background-color 200ms ease-out;
+}
+.carousel-movies:hover .scroll-btn{
+   visibility: visible;
+}
+.scroll-left{
+   left: 0%;
+   /* display: none; */
+}
+.scroll-right{
+   left: 100%;
+   transform: translateX(-100%);
+}
+
+.scroll-btn i{
+   color: var(--color-dark-grey);
+   font-size: 1.5rem;
+   transition: font-size 150ms ease-in-out, color 150ms ease-in-out;
+}
+.scroll-btn:hover i {
+   color: var(--color-light-grey);
+   font-size: 2.5rem;
+}
+
+.card {
+   margin-right: 15px;
+   position: relative;
+}
+.carousel-movies .card:nth-child(3){
+   margin-left: var(--padding-left);
+}
+
+
+.carousel-movies input[type=image]{
+   width: 250px;
+   height: 100%;
+   border-radius: 4px;
+   background-color: var(--color-dark-grey);
+}
+
+.previsualisation-card {
+   background-color: plum;
+   /* visibility: hidden; */
+   width: 100%;
+   min-height: var(--height-carousel-movies);
+   position: absolute;
+   top: 0%;
+   left: 50%;
+   transform: translateX(-50%);
+   cursor: pointer;
+   z-index: 5;
+   transition: width 300ms ease-out 1.5s;
+}
+.card:hover .previsualisation-card{
+   visibility: visible;
+   background-color: paleturquoise;
+   width: 130%;
+   
+}
+
+.card:hover .previsualisation-card img,
+.card .previsualisation-card img{
+   width: 10%;
+   background-color: rgb(0, 255, 149);
+}

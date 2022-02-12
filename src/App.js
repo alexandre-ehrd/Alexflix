@@ -1,8 +1,17 @@
+import {Header} from './Header.js';
+import {Fetch_Billboard} from './Billboard.js';
+import {Carousel} from './Carousel.js';
+import {requests} from './Requests.js';
+
+
 const API_KEY = '9589339f8da90a06aed6e3d2b11f4901';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
+
+
+
 // Container pour les films
-const BODY = document.body; // Body
+const BODY = document.body;
 const BILLBOARD_CONTAINER = document.getElementById("billboard"); // Container film à la une qui est directement visible
 
 const most_popular = document.getElementById("most-popular");
@@ -12,25 +21,6 @@ var dict = {};
 
 var carousel_Pages = {};
 
-
-function Scroll(scroll_view, direction){
-   let window_width = window.innerWidth - 40;
-   let movie_card_width = 265;
-   let nb_element_to_scroll = window_width / movie_card_width;
-	if (nb_element_to_scroll > 1){
-		nb_element_to_scroll = Math.floor(nb_element_to_scroll);
-	}
-
-   console.log(nb_element_to_scroll)
-	if (direction === 'Left'){
-	   scroll_view.scroll(scroll_view.scrollLeft - movie_card_width*nb_element_to_scroll, 0);
-	}
-	else{
-		scroll_view.scroll(scroll_view.scrollLeft + movie_card_width*nb_element_to_scroll, 0);
-	}
-	
-	t();
-}
 
 function t(){
 	var height = most_popular.scrollWidth;
@@ -45,45 +35,36 @@ function t(){
 }
 
 
-function Click_Movie(movie){
-   console.log('Click ->', dict[movie].title, dict[movie]);
-}
 
 
-function Create_BillBoard(movie){
-	if (BILLBOARD_CONTAINER.innerHTML == ""){
-		BILLBOARD_CONTAINER.innerHTML = `
-	   <img src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" alt="" width="100%">
-	   <div id="billboard-info">
-		<h1>${movie.title}</h1>
-		<p>${movie.overview}</p>
-	   </div>
-	   <div id="billboard-shadow"></div>
-		`;
-	}
-}
 
 
 function Open_Movies_Genres(){
-   // Ouvrir le fichier JSON avec tous les genres
-   fetch("request.json").then(response => {
-      if (response.ok){
-         response.json().then(data => {
-            for (let i = 0; i < data['request'].length; i++){
-               // Créer un carousel pour chaque genre cinématographique
-               Create_Carousel_Movies(data['request'][i]);
-            }
-         })
-      }
-      else{
-         console.log("Erreur : Accès impossible aux requêtes");
-      }
-	});
+   for (let i = 0; i < requests.length; i++){
+		let Carousel_Name = requests[i]['name']
+		let Carousel_Request = `${BASE_URL}${requests[i]['request']}`;
+
+		// Billboard 
+		if (i == 0) {
+			Fetch_Billboard(Carousel_Request);
+
+			/* fetch(Carousel_Request).then(response => {
+				if (response.ok){
+					response.json().then(movies_list => {
+						Billboard(movies_list)
+					})
+				}
+				else{
+					console.error(`L\'Api TMDB renvoie une erreur pour la requête ${Carousel_Request}`);
+				}
+			}); */
+
+		}
+		// Carousel
+		Carousel(Carousel_Name, Carousel_Request);
+		
+   }
 }
-
-
-
-
 
 
 
@@ -97,10 +78,7 @@ Open_Movies_Genres(); */
 
 
 
-import {Header} from './Header.js';
-import {Billboard} from './Billboard.js';
-import * as Carousel from './Carousel.js';
-export {BASE_URL, API_KEY, BODY, Click_Movie};
+
 
 /* BODY.innerHTML = Header();
 BODY.innerHTML += Billboard(); */
@@ -108,6 +86,7 @@ BODY.innerHTML += Billboard(); */
 //GetMovies_URL(harry_potter, "https://api.themoviedb.org/3/search/movie?api_key=9589339f8da90a06aed6e3d2b11f4901&language=fr-FR&query=Harry%20Potter");
 
 /* https://api.themoviedb.org/3/discover/tv?api_key=9589339f8da90a06aed6e3d2b11f4901&with_networks=213 */
+
 
 
 const obj = {
@@ -172,21 +151,14 @@ const serie = {
 }
 
 BODY.innerHTML += Header();
-BODY.innerHTML += Billboard(obj, 4);
-
-/* BODY.innerHTML += Billboard(serie, 4); */
+Open_Movies_Genres();
 
 
 //console.log(Carousel.Carousel("fgfg"));
 
 
 
-
-
-
-
-
-const requests = {
+/* const requests = {
   fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
   fetchNetfixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
   fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
@@ -195,9 +167,9 @@ const requests = {
   fetchHorrorMovies: `/discover/movie?api_key=${API_KEY}&with_genre=27`,
   fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genre=10749`,
   fetchDocumentaries: `/discover/movie?api_key=${API_KEY}&with_genre=99`,
-};
+}; */
 
-for (const request in requests){
+/* for (const request in requests){
 	console.log(`${request}: ${BASE_URL}${requests[request]}`);
-	Carousel.Carousel(request, `${BASE_URL}${requests[request]}`);
-}
+	Carousel(request, `${BASE_URL}${requests[request]}`);
+} */
