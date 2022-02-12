@@ -1,5 +1,14 @@
+import {Header} from './Header.js';
+import {Billboard} from './Billboard.js';
+import {Carousel} from './Carousel.js';
+import {requests} from './Requests.js';
+
+
 const API_KEY = '9589339f8da90a06aed6e3d2b11f4901';
 const BASE_URL = 'https://api.themoviedb.org/3';
+
+
+
 
 // Container pour les films
 const BODY = document.body; // Body
@@ -26,46 +35,18 @@ function t(){
 }
 
 
-function test() {
-   console.log("Je suis un test")
-}
 
 
-
-function Create_BillBoard(movie){
-	if (BILLBOARD_CONTAINER.innerHTML == ""){
-		BILLBOARD_CONTAINER.innerHTML = `
-	   <img src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" alt="" width="100%">
-	   <div id="billboard-info">
-		<h1>${movie.title}</h1>
-		<p>${movie.overview}</p>
-	   </div>
-	   <div id="billboard-shadow"></div>
-		`;
-	}
-}
 
 
 function Open_Movies_Genres(){
-   // Ouvrir le fichier JSON avec tous les genres
-   fetch("request.json").then(response => {
-      if (response.ok){
-         response.json().then(data => {
-            for (let i = 0; i < data['request'].length; i++){
-               // Créer un carousel pour chaque genre cinématographique
-               Create_Carousel_Movies(data['request'][i]);
-            }
-         })
-      }
-      else{
-         console.log("Erreur : Accès impossible aux requêtes");
-      }
-	});
+   for (let i = 0; i < requests.length; i++){
+		let Carousel_Name = requests[i]['name']
+		let Carousel_Request = `${BASE_URL}${requests[i]['request']}`;
+      // Créer un carousel pour chaque genre cinématographique
+		Carousel(Carousel_Name, Carousel_Request);
+   }
 }
-
-
-
-
 
 
 
@@ -79,10 +60,7 @@ Open_Movies_Genres(); */
 
 
 
-import {Header} from './Header.js';
-import {Billboard} from './Billboard.js';
-import {Carousel, Click_Movie} from './Carousel.js';
-export {BASE_URL, API_KEY, BODY};
+
 
 /* BODY.innerHTML = Header();
 BODY.innerHTML += Billboard(); */
@@ -156,19 +134,14 @@ const serie = {
 
 BODY.innerHTML += Header();
 BODY.innerHTML += Billboard(obj, 4);
-/* BODY.innerHTML += Billboard(serie, 4); */
+Open_Movies_Genres();
 
 
 //console.log(Carousel.Carousel("fgfg"));
 
 
 
-
-
-
-
-
-const requests = {
+/* const requests = {
   fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
   fetchNetfixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
   fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
@@ -177,9 +150,9 @@ const requests = {
   fetchHorrorMovies: `/discover/movie?api_key=${API_KEY}&with_genre=27`,
   fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genre=10749`,
   fetchDocumentaries: `/discover/movie?api_key=${API_KEY}&with_genre=99`,
-};
+}; */
 
-for (const request in requests){
+/* for (const request in requests){
 	console.log(`${request}: ${BASE_URL}${requests[request]}`);
 	Carousel(request, `${BASE_URL}${requests[request]}`);
-}
+} */
