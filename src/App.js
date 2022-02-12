@@ -47,18 +47,6 @@ function Open_Movies_Genres(){
 		// Billboard 
 		if (i == 0) {
 			Fetch_Billboard(Carousel_Request);
-
-			/* fetch(Carousel_Request).then(response => {
-				if (response.ok){
-					response.json().then(movies_list => {
-						Billboard(movies_list)
-					})
-				}
-				else{
-					console.error(`L\'Api TMDB renvoie une erreur pour la requête ${Carousel_Request}`);
-				}
-			}); */
-
 		}
 		// Carousel
 		Carousel(Carousel_Name, Carousel_Request);
