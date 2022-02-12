@@ -9,9 +9,9 @@
    overflow-x: scroll;
    scroll-behavior: smooth;
 }
-.carousel-movies::-webkit-scrollbar {
+/* .carousel-movies::-webkit-scrollbar {
    display: none;
-}
+} */
 
 section h3 {
    padding-left: var(--padding-left);
@@ -64,8 +64,8 @@ section h3 {
 .carousel-movies input[type=image]{
    width: 250px;
    height: 100%;
-   border-radius: 3px;
-   background-color: cornflowerblue;
+   border-radius: 4px;
+   background-color: var(--color-dark-grey);
 }
 
 .previsualisation-card {

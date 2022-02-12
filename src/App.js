@@ -45,9 +45,10 @@ function t(){
 }
 
 
-function Click_Movie(movie){
-   console.log('Click ->', dict[movie].title, dict[movie]);
+function test() {
+   console.log("Je suis un test")
 }
+
 
 
 function Create_BillBoard(movie){
@@ -99,8 +100,8 @@ Open_Movies_Genres(); */
 
 import {Header} from './Header.js';
 import {Billboard} from './Billboard.js';
-import * as Carousel from './Carousel.js';
-export {BASE_URL, API_KEY, BODY, Click_Movie};
+import {Carousel, Click_Movie} from './Carousel.js';
+export {BASE_URL, API_KEY, BODY};
 
 /* BODY.innerHTML = Header();
 BODY.innerHTML += Billboard(); */
@@ -108,6 +109,7 @@ BODY.innerHTML += Billboard(); */
 //GetMovies_URL(harry_potter, "https://api.themoviedb.org/3/search/movie?api_key=9589339f8da90a06aed6e3d2b11f4901&language=fr-FR&query=Harry%20Potter");
 
 /* https://api.themoviedb.org/3/discover/tv?api_key=9589339f8da90a06aed6e3d2b11f4901&with_networks=213 */
+
 
 
 const obj = {
@@ -198,5 +200,5 @@ const requests = {
 
 for (const request in requests){
 	console.log(`${request}: ${BASE_URL}${requests[request]}`);
-	Carousel.Carousel(request, `${BASE_URL}${requests[request]}`);
+	Carousel(request, `${BASE_URL}${requests[request]}`);
 }
