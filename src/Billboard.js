@@ -2,17 +2,22 @@ function Fetch_Billboard(URL) {
    var min = 0;
    var max = 9;
    var popularity_rank = Math.round(Math.random() * (max - min) + min);
-   
-   fetch(URL).then(response => {
-      if (response.ok){
-         response.json().then(movies_list => {
-            Billboard(movies_list['results'][popularity_rank], popularity_rank)
-         });
-      }
-      else{
-         console.error(`L\'Api TMDB renvoie une erreur pour la requête ${Carousel_Request}`);
-      }
-   });
+
+   return new Promise((resolve, reject) => {
+      fetch(URL).then(response => {
+         if (response.ok){
+            response.json().then(movies_list => {
+               Billboard(movies_list['results'][popularity_rank], popularity_rank)
+               console.log("Billboard")
+               resolve();
+            })
+         }
+         else{
+            console.error(`L\'Api TMDB renvoie une erreur pour la requête ${Carousel_Request}`);
+            reject();
+         }
+      })
+   })
 }
 
 
@@ -22,7 +27,6 @@ function Billboard(movie, popularity_rank){
    }
 
    const BODY = document.body;
-
 	BODY.innerHTML += (`
       <section class="billboard">
          <img src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" alt="" width="100%"></img>

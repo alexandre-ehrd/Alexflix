@@ -1,7 +1,6 @@
 @import './style.css';
 
 .carousel-movies {
-   margin-bottom: 40px;
    /* background-color: coral; */
    height: var(--height-carousel-movies);
    overflow-y: hidden;
@@ -14,6 +13,7 @@
 } */
 
 section h3 {
+   margin-top: 40px;
    padding-left: var(--padding-left);
 }
 

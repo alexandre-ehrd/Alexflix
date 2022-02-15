@@ -1,7 +1,7 @@
 @import './style.css';
 
-i {
-   font-size: 22px;
+.billboard i {
+   margin-right: 15px;
 }
 
 
