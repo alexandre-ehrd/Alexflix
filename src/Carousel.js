@@ -130,37 +130,3 @@ function Click_Movie(movie){
 }
 
 export {Carousel, dict, carousel_Pages};
-
-
-
-
-
-
-
-function Fetch_Movies__OLD(movie_container, URL){
-	if (URL in carousel_Pages){
-		carousel_Pages[URL] += 1;
-	}
-	else {
-		carousel_Pages[URL] = 1;
-	}
-	console.log(`Page ${carousel_Pages[URL]}`)
-
-	URL += `&page=${carousel_Pages[URL]}`;
-	
-	fetch(URL).then(response => {
-	if (response.ok){
-		response.json().then(movies_list => {
-			console.log(movies_list)
-		   for (let i_movie = 0; i_movie < movies_list['results'].length; i_movie++) {
-            // Créer les cartes de chaque films
-		      Create_Card_Movie(movie_container, movies_list['results'][i_movie]);
-		   }
-		})
-	}
-   else {
-      console.log(`Erreur : Impossible d\'accéder à l\'Api TMDB [${URL}]`);
-   }
-	})
-}
-
