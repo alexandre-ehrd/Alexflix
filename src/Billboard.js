@@ -8,7 +8,6 @@ function Fetch_Billboard(URL) {
          if (response.ok){
             response.json().then(movies_list => {
                Billboard(movies_list['results'][popularity_rank], popularity_rank)
-               console.log("Billboard")
                resolve();
             })
          }

@@ -1,6 +1,6 @@
 import {Header} from './Header.js';
 import {Fetch_Billboard} from './Billboard.js';
-import {Carousel} from './Carousel.js';
+import {Carousel, dict, carousel_Pages} from './Carousel.js';
 import {requests} from './Requests.js';
 
 
@@ -8,33 +8,7 @@ const API_KEY = '9589339f8da90a06aed6e3d2b11f4901';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 
-
-
-// Container pour les films
 const BODY = document.body;
-const BILLBOARD_CONTAINER = document.getElementById("billboard"); // Container film à la une qui est directement visible
-
-const most_popular = document.getElementById("most-popular");
-const harry_potter = document.getElementById("harry-potter");
-
-var dict = {};
-
-var carousel_Pages = {};
-
-
-function t(){
-	var height = most_popular.scrollWidth;
-	var sLeft = most_popular.scrollLeft;
-	var pourcentage = (sLeft/height)*100;
-
-	if (pourcentage > 40){
-		console.log("Charger des nouveaux films")
-		GetMovies_URL(most_popular, `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&language=fr-FR`);
-	}
-	/* console.log(`${pourcentage}% (${sLeft}, ${height})`); */
-}
-
-
 
 
 
@@ -54,14 +28,6 @@ async function Open_Movies_Genres(){
 
 BODY.innerHTML += Header();
 Open_Movies_Genres();
-
-
-
-
-
-
-
-
 
 
 

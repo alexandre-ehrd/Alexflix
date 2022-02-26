@@ -17,7 +17,6 @@ section h3 {
 }
 
 .scroll-btn {
-   /* visibility: hidden; */
    min-width: var(--padding-left);
    min-height: var(--height-carousel-movies);
    background-color: rgba(20, 20, 20, 0.7);
