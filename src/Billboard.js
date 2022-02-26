@@ -29,7 +29,7 @@ function Billboard(movie, popularity_rank){
    const BODY = document.body;
 	BODY.innerHTML += (`
       <section class="billboard">
-         <img src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" alt="" width="100%"></img>
+         <img src="https://image.tmdb.org/t/p/original/${movie.backdrop_path}" alt="${title()}" width="100%"></img>
          <div class="billboard-informations">
             <div class="billboard-movie-title">
                <h1>${title()}</h1>

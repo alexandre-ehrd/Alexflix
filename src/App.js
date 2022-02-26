@@ -56,6 +56,23 @@ BODY.innerHTML += Header();
 Open_Movies_Genres();
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 async function test(){
 	await Fetch_Billboard(`${BASE_URL}${requests[0]['request']}`);
 	console.log("Après")

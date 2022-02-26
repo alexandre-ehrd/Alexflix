@@ -10,6 +10,8 @@
    position: relative;
    overflow: hidden;
    margin: 0;
+   margin-bottom: 40px;
+   background-color: var(--color-dark-grey);
 }
 /* Ombre sur le coté gauche */
 .billboard::before{
